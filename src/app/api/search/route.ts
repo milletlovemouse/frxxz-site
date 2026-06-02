@@ -28,18 +28,18 @@ function tokenizeCjk(input: string) {
 }
 
 const cjkTokenizer = {
-  language: 'english',
+  language: 'zh-CN',
   normalizationCache: new Map<string, string>(),
   tokenize: tokenizeCjk,
 };
 
-export const { GET } = createFromSource(source, {
+export const { staticGET: GET } = createFromSource(source, {
   localeMap: {
     'zh-CN': {
       components: {
         tokenizer: cjkTokenizer,
       },
     },
-    // en: 'english',
+    en: 'english',
   },
 });

@@ -3,8 +3,8 @@ import { i18nProvider, uiTranslations } from 'fumadocs-ui/i18n';
 
 export const i18n = defineI18n({
   languages: [
-    'zh-CN'
-    // 'en'
+    'zh-CN',
+    'en'
   ] as const,
   defaultLanguage: 'zh-CN',
   hideLocale: 'default-locale',
@@ -40,9 +40,9 @@ export const translations = i18n
       notFoundDescription: '请求的页面不存在。',
       notFoundLink: '返回首页',
     },
-    // en: {
-    //   displayName: 'English',
-    // },
+    en: {
+      displayName: 'English',
+    },
   });
 
 export function getI18nProvider(locale?: string) {

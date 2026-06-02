@@ -3,6 +3,7 @@ import './global.css';
 import { Geist, Noto_Serif_SC } from 'next/font/google';
 import { getI18nProvider } from '@/lib/i18n';
 import { cn } from '@/lib/utils';
+import { StaticSearchDialog } from '@/components/search-dialog';
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 const notoSerifSC = Noto_Serif_SC({
@@ -19,7 +20,14 @@ export default function Layout({ children }: LayoutProps<'/'>) {
       suppressHydrationWarning
     >
       <body className="flex min-h-screen flex-col bg-background font-sans text-foreground">
-        <RootProvider i18n={getI18nProvider()}>{children}</RootProvider>
+        <RootProvider
+          i18n={getI18nProvider()}
+          search={{
+            SearchDialog: StaticSearchDialog,
+          }}
+        >
+          {children}
+        </RootProvider>
       </body>
     </html>
   );
